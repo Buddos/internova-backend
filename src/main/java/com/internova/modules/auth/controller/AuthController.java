@@ -57,8 +57,10 @@ public class AuthController {
         // To logout, we overwrite the cookie with a maxAge of 0
         Cookie cookie = new Cookie("JWT", null);
         cookie.setHttpOnly(true);
+        cookie.setSecure(true); // Must match the original cookie
         cookie.setPath("/");
         cookie.setMaxAge(0);
+        cookie.setAttribute("SameSite", "None"); // Must match the original cookie
         response.addCookie(cookie);
         return ResponseEntity.ok(Map.of("message", "Logged out successfully"));
     }

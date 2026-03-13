@@ -84,7 +84,7 @@ public class AuthService {
         cookie.setSecure(true); // Should be true in production (HTTPS)
         cookie.setPath("/");
         cookie.setMaxAge(86400); // 24 hours
-        cookie.setAttribute("SameSite", "Strict");
+        cookie.setAttribute("SameSite", "None");
 
         response.addCookie(cookie);
     }
